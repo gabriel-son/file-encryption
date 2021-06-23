@@ -2,7 +2,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import path from 'path';
 import helmet from 'helmet';
-import cors from "cors";
+import cors from 'cors';
 import fileUpload from 'express-fileupload';
 
 import express, { Request, Response, NextFunction } from 'express';
@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors())
 app.use(fileUpload({
-    limits: { fileSize: 5 * 1024 * 1024 },
+    limits: { fileSize: 20 * 1024 * 1024 },
     abortOnLimit: true,
 }));
 

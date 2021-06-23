@@ -2,21 +2,11 @@
   "name": "server",
   "version": "0.0.0",
   "scripts": {
-    "build": "node build.js",
-    "lint": "tslint --project \"tsconfig.json\"",
-    "start": "node -r module-alias/register ./dist --env=production",
-    "start:dev": "nodemon",
-    "test": "nodemon --config ./spec/nodemon.json"
-  },
-  "nodemonConfig": {
-    "watch": [
-      "src"
-    ],
-    "ext": "ts, html",
-    "ignore": [
-      "src/public"
-    ],
-    "exec": "ts-node -r tsconfig-paths/register ./src"
+    "start": "node dist/index.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "_moduleAliases": {
     "@daos": "dist/daos",
@@ -64,5 +54,6 @@
     "tsconfig-paths": "^3.9.0",
     "tslint": "^6.1.2",
     "typescript": "^3.9.5"
-  }
+  },
+  "engines": { "node": "12.16.3" }
 }

@@ -17,7 +17,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cookie_parser_1.default());
 app.use(cors_1.default());
 app.use(express_fileupload_1.default({
-    limits: { fileSize: 5 * 1024 * 1024 },
+    limits: { fileSize: 20 * 1024 * 1024 },
     abortOnLimit: true,
 }));
 if (process.env.NODE_ENV === 'development') {
