@@ -40,6 +40,7 @@ const setupHeaders = (res, option, file) => {
                 'Content-Type': file.mimetype,
                 'Content-disposition': 'attachment;filename=' + 'encrypted_' + file.name,
                 'Connection': 'close',
+                'access-control-allow-headers': 'set-cookie'
             });
         }
         else {
